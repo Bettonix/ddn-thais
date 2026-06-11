@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme {
+  /* Paleta */
+  --color-ink: #050507;
+  --color-ink-2: #0a0a0e;
+  --color-ink-3: #11111a;
+  --color-champagne: #d4af7a;
+  --color-champagne-soft: #e8cda3;
+  --color-silver: #c0c5cc;
+  --color-silver-soft: #e6e9ee;
+  --color-wine: #5c1a2b;
+  --color-text: #ece8df;
+  --color-text-dim: #a8a39a;
+  --color-text-faint: #6f6a62;
+  --color-paper: #f6f1e7;
+
+  /* Fontes */
+  --font-serif: var(--font-cormorant), "Cormorant Garamond", "Garamond", "Times New Roman", serif;
+  --font-mono: var(--font-jetbrains), "JetBrains Mono", "Courier New", monospace;
+
+  /* Animações */
+  --ease-quiet: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: auto; -webkit-tap-highlight-color: transparent; }
+body {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  color: var(--color-text);
+  background: var(--color-ink);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.65;
+  font-size: 18px;
+  letter-spacing: 0.005em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+body.locked { overflow: hidden; }
+
+::selection { background: var(--color-champagne); color: var(--color-ink); }
+
+a { color: var(--color-champagne); text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: 0; background: none; color: inherit; padding: 0; }
+h1, h2, h3, h4 { margin: 0; font-weight: 400; }
+p { margin: 0 0 1em; }
+
+/* Vinheta global sutil */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.6) 100%);
+}
+
+/* Cantos com marcadores */
+.corners {
+  position: relative;
+}
+.corners::before, .corners::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--color-champagne);
+  opacity: 0.5;
+  pointer-events: none;
+}
+.corners::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
+.corners::after { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }
+
+/* Linha horizontal decorativa */
+.rule {
+  width: 60px;
+  height: 1px;
+  background: var(--color-champagne);
+  margin: 0 auto;
+  opacity: 0.5;
+}
+
+/* Cursor pointer fino */
+@media (pointer: fine) {
+  a, button { cursor: pointer; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Scrollbar minimalista */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-champagne); opacity: 0.3; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-champagne); opacity: 0.6; }
