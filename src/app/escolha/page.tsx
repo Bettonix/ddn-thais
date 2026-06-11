@@ -5,7 +5,7 @@ export default function EscolhaPage() {
   return (
     <main>
       <Choice />
-      <PageNav prev="/capitulos" next="/verdade" />
+      <PageNav prev="/capitulos" next="/nos" />
     </main>
   );
 }
