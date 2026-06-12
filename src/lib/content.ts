@@ -102,12 +102,10 @@ export const AMBIENT = {
   artist: "Lana Del Rey",
 };
 
-// Capítulo "nós" — fotos do casal
+// Capítulo "nós" — foto do casal
 export const NOS = {
   title: "nós dois",
   body: "Pra lembrar que tudo isso aqui é real. Tem cara, tem risada, tem a gente.",
-  leftImage: "/media/couple-carlos.jpg",
-  leftLabel: "c.",
-  rightImage: "/media/couple-thais.jpg",
-  rightLabel: "t.",
+  image: "/media/couple-carlos.jpg",
+  label: "c. & t.",
 };
